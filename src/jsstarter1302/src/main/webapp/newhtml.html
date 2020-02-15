@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            .mydiv {width: 25px; height: 25px;background-color:yellow; margin:1px; float: left; margin-left: 20px}
+        </style>
+    </head>
+    <body>
+        <div id ='outer' style='margin: auto; width: 552px' >
+            <div id ="styleOne" class="mydiv"></div>
+            <button onclick="hiFromId(this.id)" id=1 value="1">Write to console</button>
+            <div id ="styleTwo" class="mydiv"></div>
+            <button onclick="hiFromId(this.id)" id=2 value="2">Write to console</button>
+            <div id ="styleThree" class="mydiv"></div>
+            <button onclick="hiFromId(this.id)" id=2 value="2">Write to console</button>
+            <div id ="styleFour" class="mydiv"></div>
+            <button onclick="hiFromId(this.id)" id=3 value="3">Write to console</button>
+            <div id ="styleFive" class="mydiv"></div>
+            <button onclick="hiFromId(this.id)" id=4 value="4">Write to console</button>
+            <div id ="styleSix" class="mydiv"></div>
+            <button onclick="hiFromId(this.id)" id=5 value="5">Write to console</button>
+            <div id ="styleSeven" class="mydiv"></div>
+            <button onclick="hiFromId(this.id)" id=6 value="6">Write to console</button>
+            <div id ="styleEight" class="mydiv"></div>
+            <button onclick="hiFromId(this.id)" id=7 value="7">Write to console</button>
+            <div id ="styleNine" class="mydiv"></div>
+            <button onclick="hiFromId(this.id)" id=8 value="8">Write to console</button>
+            <div id ="styleTen" class="mydiv"></div>
+            <button onclick="hiFromId(this.id)" id=9 value="9">Write to console</button>
+            <div id ="styleElleven" class="mydiv"></div>
+            <button onclick="hiFromId(this.id)" id=10 value="10">Write to console</button>
+            <div id ="styleTwelve" class="mydiv"></div>
+              </div>
+        <br>
+        <br>
+        <p id ='emptyP' align='center' ></p>
+        <br>
+        <br>
+
+        <p id ='ulP' align='center'></p>
+        <form>
+            <input type ='text' name ='okok' id = 'textField' value=''/><input type='submit' value='add name' id = 'addName'/>
+            <input type="submit" value="Remove First" id='buttonFirst'/><input type="submit" value="Remove Last" id='buttonLast'/>
+        </form>
+        <script>
+            document.getElementById("outer").onclick = hiFromId;
+            function hiFromId(evt) {
+            const id = evt.target.id;
+            document.getElementById("emptyP").innerHTML = "Hello from " + id + "<br>this: " + this.id + "<br> Target: " + id;
+            console.log("Hello from " + id);
+            console.log("this: " + this.id);
+            console.log("Target: " + id);
+        }
+        document.getElementById('buttonLast').addEventListener("click", removeLast);
+    </script>
+
+    </body>
+    
+    
+    </html>

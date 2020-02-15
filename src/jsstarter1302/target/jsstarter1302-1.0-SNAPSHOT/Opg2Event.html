@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            .mydiv {width: 25px; height: 25px;background-color:yellow; margin:1px;}
+        </style>
+    </head>
+    <body>
+        <div id ='outer' style='margin: auto;' >
+            <div id ="styleOne" class="mydiv"></div>
+            <div id ="styleTwo" class="mydiv"></div>
+            <div id ="styleThree" class="mydiv"></div>
+            <div id ="styleFour" class="mydiv"></div>
+            <div id ="styleFive" class="mydiv"></div>
+            <div id ="styleSix" class="mydiv"></div>
+            <div id ="styleSeven" class="mydiv"></div>
+            <div id ="styleEight" class="mydiv"></div>
+            <div id ="styleNine" class="mydiv"></div>
+            <div id ="styleTen" class="mydiv"></div>
+            <div id ="styleElleven" class="mydiv"></div>
+            <div id ="styleTwelve" class="mydiv"></div>
+              </div>
+        <br>
+        <br>
+        <p id ='emptyP' align='center' ></p>
+        <br>
+        <br>
+
+        <p id ='ulP' align='center'></p>
+        
+        <script>
+            function hiFromId(evt) {
+            const id = evt.target.id;
+            document.getElementById("emptyP").innerHTML = "Hello from " + id + "<br>this: " + this.id + "<br> Target: " + id;
+            console.log("Hello from " + id);
+            console.log("this: " + this.id);
+            console.log("Target: " + id);
+        }
+        document.getElementById("outer").onclick = hiFromId;
+        </script>
+            Showed Id earlyer but i cant figure out what i did wrong afterwards. 
+    </body>
+    
+    </html>
