@@ -1,7 +1,7 @@
 package facades;
 
 import utils.EMF_Creator;
-import entities.Movie;
+import entities.RenameMe;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import org.junit.jupiter.api.AfterAll;
@@ -19,12 +19,12 @@ import utils.EMF_Creator.Strategy;
 public class MovieFacadeTest {
 
     private static EntityManagerFactory emf;
-    private static MovieFacade facade;
+    private static FacadeExample facade;
 
     public MovieFacadeTest() {
     }
 
-    @BeforeAll
+    //@BeforeAll
     public static void setUpClass() {
         emf = EMF_Creator.createEntityManagerFactory(
                 "pu",
@@ -32,7 +32,7 @@ public class MovieFacadeTest {
                 "dev",
                 "ax2",
                 EMF_Creator.Strategy.CREATE);
-        facade = MovieFacade.getFacadeExample(emf);
+        facade = FacadeExample.getFacadeExample(emf);
     }
 
     /*   **** HINT **** 
@@ -43,8 +43,8 @@ public class MovieFacadeTest {
      */
     @BeforeAll
     public static void setUpClassV2() {
-       emf = EMF_Creator.createEntityManagerFactory(DbSelector.TEST,Strategy.CREATE);
-       facade = MovieFacade.getFacadeExample(emf);
+       emf = EMF_Creator.createEntityManagerFactory(DbSelector.TEST,Strategy.DROP_AND_CREATE);
+       facade = FacadeExample.getFacadeExample(emf);
     }
 
     @AfterAll
@@ -59,7 +59,10 @@ public class MovieFacadeTest {
         EntityManager em = emf.createEntityManager();
         try {
             em.getTransaction().begin();
-            //em.createNamedQuery("StartCode_test.deleteAllRows").executeUpdate();
+            em.createNamedQuery("RenameMe.deleteAllRows").executeUpdate();
+            em.persist(new RenameMe("Some txt", "More text"));
+            em.persist(new RenameMe("aaa", "bbb"));
+
             em.getTransaction().commit();
         } finally {
             em.close();
@@ -74,9 +77,7 @@ public class MovieFacadeTest {
     // TODO: Delete or change this method 
     @Test
     public void testAFacadeMethod() {
-    }
-    @Test
-    public void testAddAMovie(){
+        assertEquals(2, facade.getRenameMeCount(), "Expects two rows in the database");
     }
 
 }
